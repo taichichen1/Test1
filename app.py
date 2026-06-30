@@ -240,9 +240,9 @@ st.subheader("📈 Results")
 
 col1, col2, col3 = st.columns(3)
 
-col1.metric("Median Wealth", f"${int(np.median(final_vals)):,}")
-col2.metric("Downside (10%)", f"${int(np.percentile(final_vals,10)):,}")
-col3.metric("Upside (90%)", f"${int(np.percentile(final_vals,90)):,}")
+col1.metric("Median Wealth at final projection", f"${int(np.median(final_vals)):,}")
+col2.metric("Downside (10%) at final projection", f"${int(np.percentile(final_vals,10)):,}")
+col3.metric("Upside (90%) at final projection", f"${int(np.percentile(final_vals,90)):,}")
 
 # -----------------------------
 # CHART
