@@ -14,10 +14,14 @@ Plan your retirement, reduce taxes, and optimize Roth conversions.
 Built for high-income professionals approaching retirement.
 """)
 
+
 st.header("Why Tax Planning Matters in Retirement")
 
-st.subheader("🔹 Social Security Is Often Taxable")
-st.write("""
+# -----------------------------
+# Social Security
+# -----------------------------
+with st.expander("🔹 Why Social Security Taxation Matters"):
+    st.write("""
 Many people assume Social Security benefits are tax-free — this is not true.
 
 Up to **85% of your Social Security income can be taxable**, depending on your total income.
@@ -30,10 +34,15 @@ If you have:
 These can push you into higher tax levels and make more of your Social Security taxable.
 
 👉 Poor planning can lead to significantly higher taxes in retirement.
-""")
+    """)
+    
+    st.info("🧠 Key Insight: Social Security taxes depend on your total income, not just the benefit itself.")
 
-st.subheader("🔹 IRMAA: The Hidden Medicare Cost")
-st.write("""
+# -----------------------------
+# IRMAA
+# -----------------------------
+with st.expander("🔹 IRMAA: Hidden Medicare Premium Increases"):
+    st.write("""
 IRMAA (Income-Related Monthly Adjustment Amount) is a **stealth tax** on retirees.
 
 If your income exceeds certain thresholds, your Medicare premiums increase significantly.
@@ -48,10 +57,15 @@ Common triggers:
 - Capital gains  
 
 👉 Many retirees overpay Medicare simply because they didn't plan their income levels.
-""")
+    """)
+    
+    st.warning("⚠ Key Insight: IRMAA works in cliffs — small income changes can cause large cost increases.")
 
-st.subheader("🔹 RMD: Mandatory Withdrawals = Mandatory Taxes")
-st.write("""
+# -----------------------------
+# RMD
+# -----------------------------
+with st.expander("🔹 RMD: Forced Withdrawals and Taxes"):
+    st.write("""
 At age **73**, the IRS requires you to take withdrawals from pre-tax accounts.
 
 These are called Required Minimum Distributions (RMDs), and they:
@@ -66,11 +80,15 @@ For large balances, RMDs can be **$100K+ per year**, even if you don't need the 
 - higher tax brackets  
 - higher Medicare premiums (IRMAA)  
 - more Social Security taxation  
-""")
+    """)
+    
+    st.warning("⚠ Key Insight: RMDs reduce your ability to control when you pay taxes.")
 
-st.subheader("⚠ Why These Factors Compound Each Other")
-
-st.write("""
+# -----------------------------
+# Combined Effect
+# -----------------------------
+with st.expander("⚠ Why These Factors Compound Each Other"):
+    st.write("""
 These three factors do not act independently — they interact and compound.
 
 For example:
@@ -84,11 +102,13 @@ For example:
 Without planning, retirees often:
 - pay significantly more lifetime tax than necessary  
 - lose flexibility  
-""")
+    """)
 
-st.subheader("✅ How Smart Planning Reduces Taxes")
-
-st.write("""
+# -----------------------------
+# Strategy Section
+# -----------------------------
+with st.expander("✅ How Smart Planning Reduces Taxes"):
+    st.write("""
 With proper planning, you can:
 
 ✅ Convert pre-tax money to Roth at lower tax rates  
@@ -101,17 +121,19 @@ The most valuable strategy is typically:
 
 👉 Controlled Roth conversions between ages **65–70**
 (when income is temporarily lower)
-""")
+    """)
 
-st.subheader("📈 Get Your Personalized Strategy")
-
-st.write("""
+# -----------------------------
+# CTA
+# -----------------------------
+with st.expander("📈 Get Your Personalized Strategy"):
+    st.write("""
 Your optimal strategy depends on your exact situation.
 
 Use this tool to explore your plan — or request a personalized analysis.
-""")
-
-st.info("👉 Want a detailed tax optimization plan? Contact us for a personalized report.")
+    """)
+    
+    st.info("👉 Want a detailed tax optimization plan? Contact us for a personalized report.")
 
 # -----------------------------
 # SIDEBAR INPUTS
