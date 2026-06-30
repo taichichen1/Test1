@@ -240,10 +240,72 @@ st.subheader("📈 Results")
 
 col1, col2, col3 = st.columns(3)
 
-col1.metric("Median Wealth at final projection", f"${int(np.median(final_vals)):,}")
-col2.metric("Downside (10%) at final projection", f"${int(np.percentile(final_vals,10)):,}")
-col3.metric("Upside (90%) at final projection", f"${int(np.percentile(final_vals,90)):,}")
+col1.metric("Median Wealth after 30 years", f"${int(np.median(final_vals)):,}")
+col2.metric("Downside (10%) after 30 years", f"${int(np.percentile(final_vals,10)):,}")
+col3.metric("Upside (90%) after 30 years", f"${int(np.percentile(final_vals,90)):,}")
 
+st.header("🔄 How Taxes Flow in Retirement")
+
+income_toggle = st.radio(
+    "Select Income Scenario",
+    ["Low Income (Optimized)", "High Income (Unoptimized)"]
+)
+
+if income_toggle == "Low Income (Optimized)":
+    st.success("✅ Optimized scenario: Controlled income")
+    
+    st.write("""
+    Income Sources:
+    → Small withdrawals  
+    → Controlled Roth conversions  
+    → Delayed Social Security  
+
+    ↓
+
+    ✅ Lower tax bracket  
+    ✅ Less Social Security taxable  
+    ✅ Avoid IRMAA thresholds  
+
+    ↓
+
+    ✅ Lower lifetime taxes  
+    ✅ More after-tax wealth
+    """)
+    
+else:
+    st.error("⚠ Unoptimized scenario: High taxable income")
+    
+    st.write("""
+    Income Sources:
+    → Large RMD withdrawals  
+    → High capital gains  
+    → Poor timing  
+
+    ↓
+
+    ⚠ Higher tax bracket  
+    ⚠ Social Security heavily taxed  
+    ⚠ IRMAA triggered  
+
+    ↓
+
+    ❌ Higher lifetime taxes  
+    ❌ Reduced wealth
+    """)
+
+import matplotlib.pyplot as plt
+
+labels = ["Tax Rate", "IRMAA Cost", "Wealth Loss"]
+
+if income_toggle == "Low Income (Optimized)":
+    values = [20, 10, 20]
+else:
+    values = [35, 40, 50]
+
+fig, ax = plt.subplots()
+ax.bar(labels, values)
+ax.set_title("Impact Comparison")
+st.pyplot(fig)
 # -----------------------------
 # CHART
 # -----------------------------
@@ -265,6 +327,109 @@ ax.grid()
 
 st.pyplot(fig)
 
+st.header("📊 Before vs After Tax Planning")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.subheader("❌ Without Planning")
+    st.write("""
+    - Large RMDs after age 73  
+    - High tax brackets  
+    - IRMAA penalties  
+    - Social Security heavily taxed  
+    - Poor withdrawal sequencing  
+
+    👉 Result: Higher lifetime tax
+    """)
+    
+    st.error("Estimated Lifetime Tax: $900K+")
+
+with col2:
+    st.subheader("✅ With Smart Planning")
+    st.write("""
+    - Controlled Roth conversions (65–70)  
+    - Lower RMDs later  
+    - Income kept below thresholds  
+    - Optimized withdrawal strategy  
+
+    👉 Result: More after-tax wealth
+    """)
+    
+    st.success("Estimated Lifetime Tax: $550K")
+
+st.header("📚 Real-Life Scenarios")
+
+# -----------------------------
+# Case 1
+# -----------------------------
+with st.expander("Case 1: High-Income Professional (Age 62)"):
+    st.write("""
+    **Situation:**
+    - Income: $300K  
+    - Retirement assets: $5M  
+    - Planned retirement: age 65  
+
+    **Problem:**
+    - Large future RMDs  
+    - High tax exposure  
+
+    **Solution:**
+    - Convert ~$120K/year between 65–70  
+    - Delay Social Security to 70  
+    - Use taxable account first  
+
+    **Result:**
+    ✅ Reduced lifetime taxes by ~$400K  
+    ✅ Lower IRMAA exposure  
+    ✅ Greater Roth balance
+    """)
+
+# -----------------------------
+# Case 2
+# -----------------------------
+with st.expander("Case 2: Retired Couple Facing IRMAA Shock"):
+    st.write("""
+    **Situation:**
+    - Age: 70  
+    - Large IRA balance  
+    - Unexpected Medicare premium increase  
+
+    **Problem:**
+    - Income exceeded IRMAA threshold  
+    - Premium increased significantly  
+
+    **Solution:**
+    - Reduce withdrawals  
+    - Use Roth funds strategically  
+    - Stay below IRMAA threshold  
+
+    **Result:**
+    ✅ Avoided premium increase  
+    ✅ Improved income control  
+    """)
+
+# -----------------------------
+# Case 3
+# -----------------------------
+with st.expander("Case 3: Late Planning (Age 72)"):
+    st.write("""
+    **Situation:**
+    - Near RMD age  
+    - Large pre-tax balance  
+
+    **Problem:**
+    - No time for gradual conversion  
+    - High forced withdrawals  
+
+    **Solution:**
+    - Partial conversion strategy  
+    - Manage withdrawals carefully  
+
+    **Result:**
+    ⚠ Reduced flexibility  
+    ✅ Partial tax optimization  
+    """)
 # -----------------------------
 # STRATEGY OUTPUT
 # -----------------------------
@@ -287,6 +452,14 @@ if income_now > 250000:
 if retirement_income < 80000:
     st.success("✅ You have a strong low-income window for tax-efficient conversions")
 
+st.markdown("---")
+st.subheader("📈 Get Your Personalized Plan")
+
+st.write("""
+Your situation is unique — the optimal strategy depends on your income, assets, and goals.
+""")
+
+st.success("👉 Contact us for a customized retirement tax plan")
 # -----------------------------
 # FOOTER
 # -----------------------------
