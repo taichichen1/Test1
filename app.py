@@ -19,14 +19,14 @@ Built for high-income professionals approaching retirement.
 # -----------------------------
 st.sidebar.header("Your Inputs")
 
-age = st.sidebar.slider("Current Age", 40, 70, 62)
+age = st.sidebar.slider("Current Age", 40, 70, 60)
 retire_age = st.sidebar.slider("Retirement Age", 50, 75, 65)
 
-pretax = st.sidebar.number_input("Pre-tax Balance ($)", value=2000000)
-roth = st.sidebar.number_input("Roth Balance ($)", value=800000)
-taxable = st.sidebar.number_input("Taxable Balance ($)", value=4000000)
+pretax = st.sidebar.number_input("Pre-tax Balance ($)", value=1000000)
+roth = st.sidebar.number_input("Roth Balance ($)", value=400000)
+taxable = st.sidebar.number_input("Taxable Balance ($)", value=1000000)
 
-income_now = st.sidebar.number_input("Current AGI ($)", value=330000)
+income_now = st.sidebar.number_input("Current AGI ($)", value=200000)
 retirement_income = st.sidebar.number_input("Retirement Income ($)", value=50000)
 
 spend = st.sidebar.number_input("Annual Spending ($)", value=100000)
