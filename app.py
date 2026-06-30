@@ -121,14 +121,14 @@ st.sidebar.header("Your Inputs")
 age = st.sidebar.slider("Current Age", 40, 70, 60)
 retire_age = st.sidebar.slider("Retirement Age", 50, 75, 65)
 
-pretax = st.sidebar.number_input("Pre-tax Balance ($)", value=1000000)
-roth = st.sidebar.number_input("Roth Balance ($)", value=400000)
-taxable = st.sidebar.number_input("Taxable Balance ($)", value=1000000)
+pretax = st.sidebar.number_input("Pre-tax Balance ($)", value=500000)
+roth = st.sidebar.number_input("Roth Balance ($)", value=200000)
+taxable = st.sidebar.number_input("Taxable Balance ($)", value=500000)
 
-income_now = st.sidebar.number_input("Current AGI ($)", value=200000)
+income_now = st.sidebar.number_input("Current AGI ($)", value=100000)
 retirement_income = st.sidebar.number_input("Retirement Income ($)", value=50000)
 
-spend = st.sidebar.number_input("Annual Spending ($)", value=100000)
+spend = st.sidebar.number_input("Annual Spending ($)", value=50000)
 
 return_rate = st.sidebar.slider("Expected Return (%)", 3, 10, 6) / 100
 volatility = st.sidebar.slider("Volatility (%)", 5, 20, 11) / 100
