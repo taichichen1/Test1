@@ -234,6 +234,21 @@ p90 = np.percentile(results, 90, axis=0)
 final_vals = results[:, -1]
 
 # -----------------------------
+# ESTIMATE TAX IMPACT (SIMPLIFIED MODEL-BASED)
+# -----------------------------
+# Approximate total wealth loss vs ideal scenario
+
+starting_total = pretax + roth + taxable
+ending_total = np.median(final_vals)
+
+total_growth = ending_total - starting_total
+
+# Approximate tax inefficiency proxy
+tax_before = total_growth * 0.30   # assume inefficient case
+tax_after = total_growth * 0.18    # optimized case
+
+tax_savings = tax_before - tax_after
+# -----------------------------
 # RESULTS
 # -----------------------------
 st.subheader("📈 Results")
@@ -343,7 +358,7 @@ with col1:
     👉 Result: Higher lifetime tax
     """)
     
-    st.error("Estimated Lifetime Tax: $900K+")
+    st.error(f"Estimated Lifetime Tax: ${int(tax_before):,}")
 
 with col2:
     st.subheader("✅ With Smart Planning")
@@ -356,7 +371,8 @@ with col2:
     👉 Result: More after-tax wealth
     """)
     
-    st.success("Estimated Lifetime Tax: $550K")
+    st.success(f"Estimated Lifetime Tax: ${int(tax_after):,}")
+st.info(f"💰 Potential Tax Savings: ${int(tax_savings):,}")
 
 st.header("📚 Real-Life Scenarios")
 
