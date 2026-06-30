@@ -7,12 +7,111 @@ st.set_page_config(page_title="Retirement Tax Optimizer", layout="wide")
 # -----------------------------
 # TITLE
 # -----------------------------
-st.title("📊 Retirement Tax & Wealth Optimizer")
+st.title("📊 Retirement Tax Optimizer for High-Income Professionals")
 
 st.markdown("""
 Plan your retirement, reduce taxes, and optimize Roth conversions.
 Built for high-income professionals approaching retirement.
 """)
+
+st.header("Why Tax Planning Matters in Retirement")
+
+st.subheader("🔹 Social Security Is Often Taxable")
+st.write("""
+Many people assume Social Security benefits are tax-free — this is not true.
+
+Up to **85% of your Social Security income can be taxable**, depending on your total income.
+
+If you have:
+- withdrawals from retirement accounts  
+- capital gains  
+- Roth conversions  
+
+These can push you into higher tax levels and make more of your Social Security taxable.
+
+👉 Poor planning can lead to significantly higher taxes in retirement.
+""")
+
+st.subheader("🔹 IRMAA: The Hidden Medicare Cost")
+st.write("""
+IRMAA (Income-Related Monthly Adjustment Amount) is a **stealth tax** on retirees.
+
+If your income exceeds certain thresholds, your Medicare premiums increase significantly.
+
+Examples:
+- Crossing a threshold by just $1 can increase premiums by **thousands per year**
+- Applies to both spouses
+
+Common triggers:
+- Large Roth conversions  
+- RMD withdrawals  
+- Capital gains  
+
+👉 Many retirees overpay Medicare simply because they didn't plan their income levels.
+""")
+
+st.subheader("🔹 RMD: Mandatory Withdrawals = Mandatory Taxes")
+st.write("""
+At age **73**, the IRS requires you to take withdrawals from pre-tax accounts.
+
+These are called Required Minimum Distributions (RMDs), and they:
+
+- Are fully taxable as ordinary income  
+- Cannot be avoided  
+- Can push you into higher tax brackets  
+
+For large balances, RMDs can be **$100K+ per year**, even if you don't need the money.
+
+👉 Without planning, RMDs can trigger:
+- higher tax brackets  
+- higher Medicare premiums (IRMAA)  
+- more Social Security taxation  
+""")
+
+st.subheader("⚠ Why These Factors Compound Each Other")
+
+st.write("""
+These three factors do not act independently — they interact and compound.
+
+For example:
+- RMD increases income →
+- pushes you into higher tax bracket →
+- causes more Social Security to be taxable →
+- triggers IRMAA premiums
+
+👉 This creates a chain reaction of higher taxes.
+
+Without planning, retirees often:
+- pay significantly more lifetime tax than necessary  
+- lose flexibility  
+""")
+
+st.subheader("✅ How Smart Planning Reduces Taxes")
+
+st.write("""
+With proper planning, you can:
+
+✅ Convert pre-tax money to Roth at lower tax rates  
+✅ Reduce future RMDs  
+✅ Keep income below IRMAA thresholds  
+✅ Preserve tax-free income sources  
+✅ Increase after-tax wealth  
+
+The most valuable strategy is typically:
+
+👉 Controlled Roth conversions between ages **65–70**
+(when income is temporarily lower)
+""")
+
+st.subheader("📈 Get Your Personalized Strategy")
+
+st.write("""
+Your optimal strategy depends on your exact situation.
+
+Use this tool to explore your plan — or request a personalized analysis.
+""")
+
+st.info("👉 Want a detailed tax optimization plan? Contact us for a personalized report.")
 
 # -----------------------------
 # SIDEBAR INPUTS
