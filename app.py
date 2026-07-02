@@ -252,13 +252,48 @@ tax_savings = tax_before - tax_after
 # -----------------------------
 # RESULTS
 # -----------------------------
-st.subheader("📈 Results")
+st.subheader("📈 Wealth Projection Summary")
 
+# Year indices
+idx10 = min(9, results.shape[1] - 1)
+idx20 = min(19, results.shape[1] - 1)
+idx30 = min(29, results.shape[1] - 1)
+
+# 10-Year
+median10 = np.median(results[:, idx10])
+p10_10 = np.percentile(results[:, idx10], 10)
+p90_10 = np.percentile(results[:, idx10], 90)
+
+# 20-Year
+median20 = np.median(results[:, idx20])
+p10_20 = np.percentile(results[:, idx20], 10)
+p90_20 = np.percentile(results[:, idx20], 90)
+
+# 30-Year
+median30 = np.median(results[:, idx30])
+p10_30 = np.percentile(results[:, idx30], 10)
+p90_30 = np.percentile(results[:, idx30], 90)
+
+# Display
 col1, col2, col3 = st.columns(3)
 
-col1.metric("Median Wealth after 30 years", f"${int(np.median(final_vals)):,}")
-col2.metric("Downside (10%) after 30 years", f"${int(np.percentile(final_vals,10)):,}")
-col3.metric("Upside (90%) after 30 years", f"${int(np.percentile(final_vals,90)):,}")
+with col1:
+    st.markdown("### 10-Year")
+    st.metric("Median", f"${median10:,.0f}")
+    st.metric("Downside (10%)", f"${p10_10:,.0f}")
+    st.metric("Upside (90%)", f"${p90_10:,.0f}")
+
+with col2:
+    st.markdown("### 20-Year")
+    st.metric("Median", f"${median20:,.0f}")
+    st.metric("Downside (10%)", f"${p10_20:,.0f}")
+    st.metric("Upside (90%)", f"${p90_20:,.0f}")
+
+with col3:
+    st.markdown("### 30-Year")
+    st.metric("Median", f"${median30:,.0f}")
+    st.metric("Downside (10%)", f"${p10_30:,.0f}")
+    st.metric("Upside (90%)", f"${p90_30:,.0f}")
 
 st.header("🔄 How Taxes Flow in Retirement")
 
